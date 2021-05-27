@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.MySQL5Dialect"
+  datasource:
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+    url: "jdbc:mysql://localhost:3306/products?useSSL=false&serverTimezone=UTC"
+    username: "root"
+logging:
+  level:
+    com:
+      camel:
+        core: "DEBUG"
