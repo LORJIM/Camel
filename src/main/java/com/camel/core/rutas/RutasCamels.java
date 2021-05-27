@@ -21,6 +21,7 @@ public class RutasCamels extends RouteBuilder{
 			.log("Entrando en "+RutasConfig.CAMELPRUEBASGETBBDD)
 			.setHeader("camelRoute", constant(RutasConfig.CAMELPRUEBASGETBBDD)) //seteamos un header con la ruta del camel, esto servira para hacer los mapeos de salida en el transformer
 			.setHeader("country", simple("${body.country}")) //seteamos el header country con el dato que puede venir informado en el body, esto nos sirve para comprobar su valor mas abajo en el flujo
+			//si los datos de entrada vinieran en formato XML, utilizariamos xpath
 			.to("direct:getproducts") //ejecutamos esta ruta para obtener los products
 			.choice() //indica que vamos a utilizar una estructura if alike
 				.when(header("country").isNotNull()) //si el dato country viene informado
